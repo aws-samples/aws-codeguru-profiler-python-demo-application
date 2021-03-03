@@ -1,7 +1,5 @@
 # Amazon CodeGuru Profiler Python Demo Application
 
-Simple Python application for demonstrating the features of [Amazon CodeGuru Profiler](https://aws.amazon.com/codeguru/).
-
 ![CodeGuru Profiler Console Screenshot](resources/CodeGuruProfilerPythonScreenshot.png)
 
 ## How it works

@@ -1,0 +1,4 @@
+django==3.1.7
+requests
+codeguru_profiler_agent
+boto3

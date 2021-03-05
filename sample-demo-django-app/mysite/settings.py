@@ -163,4 +163,4 @@ logger = logging.getLogger(__name__)
 logger.info('Custom settings for logging were set.')
 
 # Start CodeGuru Profiler, the logging is set in the LOGGING.
-Profiler(profiling_group_name='mirelap-test').start()
+Profiler(profiling_group_name='PythonDemoDjangoApplication').start()

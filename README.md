@@ -1,4 +1,4 @@
-# Amazon CodeGuru Profiler Python Demo Applicationsa
+# Amazon CodeGuru Profiler Python Demo Applications
 
 Simple Python applications for demonstrating the features of [Amazon CodeGuru Profiler](https://aws.amazon.com/codeguru/) using the Python agent that is open-sourced at [aws/amazon-codeguru-profiler-python-agent](https://github.com/aws/amazon-codeguru-profiler-python-agent).
 

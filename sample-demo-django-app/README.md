@@ -20,27 +20,34 @@ See [here](https://docs.aws.amazon.com/cli/latest/reference/s3/mb.html) for more
 7. Install the needed dependencies that are used for the demo application through `pip` using the `requirements.txt` file.
 
 Here are the commands to run on your machine.
-    ```bash
-    aws configure # Set up your AWS credentials and region as usual.
-    ```
 
-    ```bash
-    aws codeguruprofiler create-profiling-group --profiling-group-name PythonDemoDjangoApplication
+```bash
+aws configure # Set up your AWS credentials and region as usual.
+```
 
-    # It is required to set the DEMO_APP_BUCKET_NAME environment applications for later running the demo application.
+```bash
+aws codeguruprofiler create-profiling-group --profiling-group-name PythonDemoDjangoApplication
 
-    # Make sure you update `YOUR-BUCKET-NAME-REPLACE-ME`with a bucket name that is unique across all of Amazon S3.
-    export DEMO_APP_BUCKET_NAME=YOUR-BUCKET-NAME-REPLACE-ME
-    aws s3 mb s3://${DEMO_APP_BUCKET_NAME}
-    ```
+# It is required to set the DEMO_APP_BUCKET_NAME environment applications for later running the demo application.
 
-    ```bash
-    python3 -m venv ./venv
-    source venv/bin/activate
-    pip install -r requirements.txt
-    ```
+# Make sure you update `YOUR-BUCKET-NAME-REPLACE-ME`with a bucket name that is unique across all of Amazon S3.
+export DEMO_APP_BUCKET_NAME=YOUR-BUCKET-NAME-REPLACE-ME
+aws s3 mb s3://${DEMO_APP_BUCKET_NAME}
+```
+
+```bash
+python3 -m venv ./venv
+source venv/bin/activate
+pip install -r requirements.txt
+```
 
 ## How to run
+
+That main entry point is in ``sample-demo-django-app/mysite/wsgi.py`` where the configuration is set to be read from ``mysite.settings`` that is in ``sample-demo-django-app/mysite/settings.py``.
+
+* The ``INSTALLED_APPS`` in that file contains what applications to install, including the ``polls.apps.PollsConfig`` that's configured in the ``sample-demo-django-app/polls`` folder; for example, you can find the mapping for each url in ``sample-demo-django-app/polls/urls.py``.
+
+* There you can find the configuration for CodeGuru Profiler to start and to log.
 
 ### Run the service.
 

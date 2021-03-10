@@ -43,9 +43,9 @@ pip install -r requirements.txt
 
 ## How to run
 
-That main entry point is in ``sample-demo-django-app/mysite/wsgi.py`` where the configuration is set to be read from ``mysite.settings`` that is in ``sample-demo-django-app/mysite/settings.py``.
+The main entry point is in ``sample-demo-django-app/mysite/wsgi.py`` where the configuration is set to be read from ``mysite.settings`` that is in ``sample-demo-django-app/mysite/settings.py``.
 
-* The ``INSTALLED_APPS`` in that file contains what applications to install, including the ``polls.apps.PollsConfig`` that's configured in the ``sample-demo-django-app/polls`` folder; for example, you can find the mapping for each url in ``sample-demo-django-app/polls/urls.py``.
+* The ``INSTALLED_APPS`` in that file contains what applications to install, including the ``polls.apps.PollsConfig`` that is configured in the ``sample-demo-django-app/polls`` folder; for example, you can find the mapping for each url in ``sample-demo-django-app/polls/urls.py``.
 
 * There you can find the configuration for CodeGuru Profiler to start and to log.
 

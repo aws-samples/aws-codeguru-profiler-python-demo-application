@@ -72,6 +72,9 @@ pip3 install codeguru_profiler_agent
 For Python 3.9, installing `scikit-image` may cause failures; this is a known issue, discussed in https://github.com/scikit-image/scikit-image/issues/5060.
 
 ## How to run
+
+The main entry point of this application is in the ``aws_python_sample_application/main.py`` in the ``SampleDemoApp`` class.
+
 ```bash
 # Run the demo application with the CodeGuru Profiler Python Agent.
 python3 -m codeguru_profiler_agent -p PythonDemoApplication aws_python_sample_application/main.py

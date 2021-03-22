@@ -1,0 +1,4 @@
+flask==1.1.2
+requests
+codeguru_profiler_agent
+boto3

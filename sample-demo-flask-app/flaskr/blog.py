@@ -22,7 +22,7 @@ def _get_environment_variable(key, example_value):
 
 s3_key_name = 'resources/example-image.png'
 s3_bucket_name = _get_environment_variable(key="DEMO_APP_BUCKET_NAME",
-                                           example_value="test-images-for-my-demo-django-app")
+                                           example_value="test-images-for-my-demo-flask-app")
 
 
 @bp.route('/')

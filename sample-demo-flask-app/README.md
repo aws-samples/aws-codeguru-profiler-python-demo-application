@@ -49,6 +49,13 @@ The main entry point is in `sample-demo-flask-app/flaskr/__init__.py` that initi
 
 * There in the `gunicorn_conf.py` you can find the configuration for CodeGuru Profiler to start and to log.
 
+### Initialize the local db
+
+After the following command, there will now be a `flaskr.sqlite` file in the `instance/` folder in your project.
+````bash
+flask init-db
+````
+
 ### Run the service.
 
 Start the service using the gunicorn configuration.

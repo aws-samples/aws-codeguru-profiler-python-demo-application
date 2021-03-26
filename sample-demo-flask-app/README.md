@@ -45,16 +45,16 @@ pip install -r requirements.txt
 
 The main entry point is in `sample-demo-flask-app/flaskr/__init__.py` that initializes applications, like the main one from `sample-demo-flask-app/flaskr/blog.py`.
 
-* The configuration for gunicorn is in `gunicorn.py`.
+* The configuration for gunicorn is in `gunicorn_conf.py`.
 
-* There in the `gunicorn.py` you can find the configuration for CodeGuru Profiler to start and to log.
+* There in the `gunicorn_conf.py` you can find the configuration for CodeGuru Profiler to start and to log.
 
 ### Run the service.
 
 Start the service using the gunicorn configuration.
     ```bash
     # Start the service using a gunicorn server and 5 workers.
-    gunicorn "flaskr:create_app()" -c gunicorn.py --log-level DEBUG --workers=5
+    gunicorn "flaskr:create_app()" -c gunicorn_conf.py --log-level DEBUG --workers=5
     ```
 
 ### Generate traffic

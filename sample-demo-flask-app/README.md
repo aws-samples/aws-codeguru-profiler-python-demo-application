@@ -52,17 +52,17 @@ The main entry point is in `sample-demo-flask-app/flaskr/__init__.py` that initi
 ### Run the service.
 
 Start the service using the gunicorn configuration.
-    ```bash
-    # Start the service using a gunicorn server and 5 workers.
-    gunicorn "flaskr:create_app()" -c gunicorn_conf.py --log-level DEBUG --workers=5
-    ```
+```bash
+# Start the service using a gunicorn server and 5 workers.
+gunicorn "flaskr:create_app()" -c gunicorn_conf.py --log-level DEBUG --workers=5
+```
 
 ### Generate traffic
 
 Generate traffic by running the following script that will make thousands of requests to the local server started at `http://127.0.0.1:8000`.
-    ```bash
-    ./generate_traffic.sh
-    ```
+```bash
+./generate_traffic.sh
+```
 
 ## How to see the results
 

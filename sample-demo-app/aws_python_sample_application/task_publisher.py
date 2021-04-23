@@ -21,10 +21,6 @@ class TaskPublisher:
     def _list_image_on_s3(self):
         try:
             print("Listing image in " + self.s3_bucket_name + " under " + SAMPLE_IMAGES_FOLDER)
-            response = self.s3_client.list_objects_v2(Bucket=self.s3_bucket_name, Prefix=SAMPLE_IMAGES_FOLDER)
-            
-            response_sample_99 = self.s3_client.list_objects_v2(Bucket=self.s3_bucket_name, Prefix=SAMPLE_IMAGES_FOLDER)
-
             objects_in_s3 = list(map(lambda x: x["Key"], response["Contents"]))
             print("Listed image in " + self.s3_bucket_name + " under " + SAMPLE_IMAGES_FOLDER + " successfully.")
             return list(filter(lambda x: x != SAMPLE_IMAGES_FOLDER, objects_in_s3))

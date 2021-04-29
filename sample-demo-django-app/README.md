@@ -57,16 +57,30 @@ The main entry point is in ``sample-demo-django-app/mysite/wsgi.py`` where the c
     python3 manage.py loaddata initial_local_db_data.json
     ```
 
-2. Start the service using **one** of the following commands.
+2. Start the service using **one** of the following commands, depending on what web server you want.
+
+    2.1 Start the service using a development server.
     ```bash
-    # Start the service using a development server.
     python manage.py runserver
     ```
 
+    2.2. Start the service using [uWSGI](https://uwsgi-docs.readthedocs.io/en/latest/) with multiple workers; use the `--enable-threads and `--lazy-apps` parameters  for your startup configuration, so Profiler can be started. This was tested for uswgi version 2.0.19.1.
     ```bash
-    # Start the service using a uWSGI server and 4 workers.
     uwsgi --http :8000 --chdir . --wsgi-file mysite/wsgi.py --enable-threads --lazy-apps --disable-logging --workers=4
     ```
+
+    2.3. Start the service using [Apache HTTP server (httpd)](https://httpd.apache.org/) with the [mod_wsgi](https://docs.djangoproject.com/en/3.2/howto/deployment/wsgi/modwsgi/) module. Make sure the `wsgi.py` file is configured to be visible in the `httpd.conf` file. This was tested for httpd version 2.4.46.
+    ```bash
+    <Directory <to_be_replaced>/aws-codeguru-profiler-python-demo-application/sample-demo-django-app/mysite>
+    <Files wsgi.py>
+    Require all granted
+    </Files>
+    </Directory>
+    ```
+
+    ```bash
+    apachectl start
+    ````
 
 ### Generate traffic
 

@@ -1,6 +1,7 @@
 # Amazon CodeGuru Profiler Python Demo Django Web Application
 
-![CodeGuru Profiler Console Screenshot](resources/CodeGuruProfilerPythonScreenshotDemoDjango.png)
+![CodeGuru Profiler Console Screenshot CPU view](resources/CodeGuruProfilerPythonScreenshotDemoDjangoCPU.png)
+![CodeGuru Profiler Console Screenshot Latency view](resources/CodeGuruProfilerPythonScreenshotDemoDjangoLatency.png)
 
 ### Code
 

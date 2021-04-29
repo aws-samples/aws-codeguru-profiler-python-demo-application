@@ -6,7 +6,9 @@ Check the individual folders for each specific demo application.
 
 ![CodeGuru Profiler Console Screenshot for sample-demo-app](sample-demo-app/resources/CodeGuruProfilerPythonScreenshot.png)
 
-![CodeGuru Profiler Console Screenshot for sample-demo-django-app](sample-demo-django-app/resources/CodeGuruProfilerPythonScreenshotDemoDjango.png)
+![CodeGuru Profiler Console Screenshot for sample-demo-django-app - cpu](sample-demo-django-app/resources/CodeGuruProfilerPythonScreenshotDemoDjangoCPU.png)
+
+![CodeGuru Profiler Console Screenshot for sample-demo-django-app - latency](sample-demo-django-app/resources/CodeGuruProfilerPythonScreenshotDemoDjangoLatency.png)
 
 ![CodeGuru Profiler Console Screenshot for sample-demo-flask-app](sample-demo-flask-app/resources/CodeGuruProfilerPythonScreenshotDemoFlask.png)
 

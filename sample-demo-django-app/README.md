@@ -65,14 +65,14 @@ The main entry point is in ``sample-demo-django-app/mysite/wsgi.py`` where the c
     python manage.py runserver
     ```
 
-    2.2. Start the service using [uWSGI](https://uwsgi-docs.readthedocs.io/en/latest/) with multiple workers; use the `--enable-threads and `--lazy-apps` parameters  for your startup configuration, so Profiler can be started. This was tested for uswgi version 2.0.19.1.
+    2.2. Start the service using [uWSGI](https://uwsgi-docs.readthedocs.io/en/latest/) with multiple workers; use the `--enable-threads` and `--lazy-apps` parameters  for your startup configuration, so Profiler can be started. This was tested for uswgi version 2.0.19.1.
     ```bash
     uwsgi --http :8000 --chdir . --wsgi-file mysite/wsgi.py --enable-threads --lazy-apps --disable-logging --workers=4
     ```
 
     2.3. Start the service using [Apache HTTP server (httpd)](https://httpd.apache.org/) with the [mod_wsgi](https://docs.djangoproject.com/en/3.2/howto/deployment/wsgi/modwsgi/) module. Make sure the `wsgi.py` file is configured to be visible in the `httpd.conf` file. This was tested for httpd version 2.4.46.
     ```bash
-    <Directory <to_be_replaced>/aws-codeguru-profiler-python-demo-application/sample-demo-django-app/mysite>
+    <Directory [to_be_replaced]/aws-codeguru-profiler-python-demo-application/sample-demo-django-app/mysite>
     <Files wsgi.py>
     Require all granted
     </Files>

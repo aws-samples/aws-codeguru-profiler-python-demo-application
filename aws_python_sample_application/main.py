@@ -66,9 +66,9 @@ class SampleDemoApp:
 
 if __name__ == '__main__':
 
-    iam_role=sys.argv[1]
-    sqs_url=sys.argv[2]
-    s3_bucket=sys.argv[3]
+    iam_role=sys.argv[0]
+    sqs_url=sys.argv[1]
+    s3_bucket=sys.argv[2]
     codeguru_session = assume_role(iam_role)
     
     Profiler(profiling_group_name="codeguru-python-app", 

@@ -67,12 +67,12 @@ class SampleDemoApp:
 if __name__ == '__main__':
 
     iam_role=sys.argv[0]
-    sqs_url=sys.argv[1]
-    s3_bucket=sys.argv[2]
+    sqs_queue_url=sys.argv[1]
+    s3_bucket_name="338918620411-account-bucket"
     codeguru_session = assume_role(iam_role)
     
     Profiler(profiling_group_name="codeguru-python-app", 
              region_name="eu-west-1", 
              aws_session=codeguru_session).start()
 
-    SampleDemoApp(sqs_url, s3_bucket).run()
+    SampleDemoApp(sqs_queue_url, s3_bucket_name).run()

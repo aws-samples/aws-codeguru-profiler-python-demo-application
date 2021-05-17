@@ -1,5 +1,0 @@
-flask==1.1.2
-gunicorn==20.1.0
-requests
-codeguru_profiler_agent
-boto3

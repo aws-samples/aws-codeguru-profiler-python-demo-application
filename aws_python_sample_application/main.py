@@ -7,20 +7,29 @@ import time
 from image_processor import ImageProcessor
 from task_publisher import TaskPublisher
 
+import boto3
+from codeguru_profiler_agent import Profiler
 
-def _get_environment_variable(key, example_value):
-    value = os.getenv(key)
-    if value is None:
-        raise RuntimeError("Environment variable " + key + " must be set, e.g. " + example_value)
-    return value
+def assume_role(iam_role):
+
+    sts_client = boto3.client('sts')
+    assumed_role = sts_client.assume_role(RoleArn =  iam_role,
+                                      RoleSessionName = "CodeGuru_Python_App",
+                                      DurationSeconds = 900)
+
+    custom_session = boto3.Session(
+        aws_access_key_id     = assumed_role['Credentials']['AccessKeyId'],
+        aws_secret_access_key = assumed_role['Credentials']['SecretAccessKey'],
+        aws_session_token     = assumed_role['Credentials']['SessionToken']
+    )
+
+    return custom_session
 
 
 class SampleDemoApp:
     def __init__(self):
-        self.sqs_queue_url = _get_environment_variable(
-            key="DEMO_APP_SQS_URL", example_value="https://sqs.eu-west-2.amazonaws.com/123456789000/ImageQueue")
-        self.s3_bucket_name = _get_environment_variable(
-            key="DEMO_APP_BUCKET_NAME", example_value="test-images-for-my-demo-app")
+        self.sqs_queue_url = "https://sqs.eu-west-1.amazonaws.com/338918620411/CodeGuruPythonApp"
+        self.s3_bucket_name = "338918620411-account-bucket"
         self.task_publisher = TaskPublisher(self.sqs_queue_url, self.s3_bucket_name)
         self.image_processor = ImageProcessor(self.sqs_queue_url, self.s3_bucket_name)
 
@@ -55,4 +64,10 @@ class SampleDemoApp:
 
 
 if __name__ == '__main__':
+    iam_role="arn:aws:iam::758007484833:role/CrossAccountCodeGuruProfilerRole"
+    custom_session = assume_role(iam_role)
+    Profiler(profiling_group_name="codeguru-python-app", 
+             region_name="eu-west-1", 
+             aws_session=custom_session).start()
+
     SampleDemoApp().run()

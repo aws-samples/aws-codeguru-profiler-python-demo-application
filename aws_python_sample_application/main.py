@@ -66,8 +66,8 @@ class SampleDemoApp:
 
 if __name__ == '__main__':
 
-    iam_role=sys.argv[1]
-    sqs_queue_url=sys.argv[2]
+    iam_role="arn:aws:iam::758007484833:role/CrossAccountCodeGuruProfilerRole"
+    sqs_queue_url="https://sqs.eu-west-1.amazonaws.com/338918620411/CodeGuruPythonApp"
     s3_bucket_name="338918620411-account-bucket"
     codeguru_session = assume_role(iam_role)
     

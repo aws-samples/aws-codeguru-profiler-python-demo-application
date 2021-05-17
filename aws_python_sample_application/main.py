@@ -3,6 +3,7 @@
 import os
 import threading
 import time
+import sys
 
 from image_processor import ImageProcessor
 from task_publisher import TaskPublisher
@@ -17,19 +18,19 @@ def assume_role(iam_role):
                                       RoleSessionName = "CodeGuru_Python_App",
                                       DurationSeconds = 900)
 
-    custom_session = boto3.Session(
+    codeguru_session = boto3.Session(
         aws_access_key_id     = assumed_role['Credentials']['AccessKeyId'],
         aws_secret_access_key = assumed_role['Credentials']['SecretAccessKey'],
         aws_session_token     = assumed_role['Credentials']['SessionToken']
     )
 
-    return custom_session
+    return codeguru_session
 
 
 class SampleDemoApp:
-    def __init__(self):
-        self.sqs_queue_url = "https://sqs.eu-west-1.amazonaws.com/338918620411/CodeGuruPythonApp"
-        self.s3_bucket_name = "338918620411-account-bucket"
+    def __init__(self, sqs_queue_url, s3_bucket_name):
+        self.sqs_queue_url = sqs_queue_url
+        self.s3_bucket_name = s3_bucket_name
         self.task_publisher = TaskPublisher(self.sqs_queue_url, self.s3_bucket_name)
         self.image_processor = ImageProcessor(self.sqs_queue_url, self.s3_bucket_name)
 
@@ -64,10 +65,14 @@ class SampleDemoApp:
 
 
 if __name__ == '__main__':
-    iam_role="arn:aws:iam::758007484833:role/CrossAccountCodeGuruProfilerRole"
-    custom_session = assume_role(iam_role)
+
+    iam_role=sys.argv[1]
+    sqs_url=sys.argv[2]
+    s3_bucket=sys.argv[3]
+    codeguru_session = assume_role(iam_role)
+    
     Profiler(profiling_group_name="codeguru-python-app", 
              region_name="eu-west-1", 
-             aws_session=custom_session).start()
+             aws_session=codeguru_session).start()
 
-    SampleDemoApp().run()
+    SampleDemoApp(sqs_url, s3_bucket).run()

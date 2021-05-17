@@ -20,7 +20,7 @@ phases:
       - cat Dockerfile
       
       # building Docker image for Python App
-      - docker build -f Dockerfile -t codeguru-python-app-deployment  --build-arg IAM_ROLE=$IAM_ROLE --build-arg SQS_URL=$SQS_URL --build-arg S3_BUCKET=$S3_BUCKET .
+      - docker build -f Dockerfile -t codeguru-python-app-deployment --build-arg IAM_ROLE=$IAM_ROLE --build-arg SQS_URL=$SQS_URL --build-arg S3_BUCKET=$S3_BUCKET .
       - docker tag codeguru-python-app-deployment:latest $ECR_PYTHON_APP_REPO:latest
       - docker push $ECR_PYTHON_APP_REPO:latest
   
@@ -36,6 +36,7 @@ phases:
       - aws eks update-kubeconfig --name $EKS_CLUSTER_NAME
       - kubectl config get-contexts
       - kubectl get nodes
+      - kubectl delete deployments.apps codeguru-python-app-deployment
       - kubectl apply -f codeguru-python-app-deployment.yaml
       - kubectl get all -n default
       - echo $EKS_KUBECTL_ROLE_ARN:$EKS_CLUSTER_NAME > build.json

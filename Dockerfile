@@ -10,4 +10,4 @@ ENV S3_BUCKET_ENV=${S3_BUCKET}
 WORKDIR /app
 ADD aws_python_sample_application .
 ADD resources resources/.
-ENTRYPOINT [ "python", "main.py", ${IAM_ROLE_ENV}, ${SQS_URL_ENV}, ${S3_BUCKET_ENV}]
+ENTRYPOINT "python" "main.py" ${IAM_ROLE_ENV} ${SQS_URL_ENV} ${S3_BUCKET_ENV}

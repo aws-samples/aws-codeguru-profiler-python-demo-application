@@ -66,8 +66,8 @@ class SampleDemoApp:
 
 if __name__ == '__main__':
 
-    iam_role=sys.argv[0]
-    sqs_queue_url=sys.argv[1]
+    iam_role=sys.argv[1]
+    sqs_queue_url=sys.argv[2]
     s3_bucket_name="338918620411-account-bucket"
     codeguru_session = assume_role(iam_role)
     

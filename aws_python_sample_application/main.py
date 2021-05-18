@@ -77,9 +77,9 @@ if __name__ == '__main__':
 
     print(args)
 
-    iam_role="arn:aws:iam::758007484833:role/CrossAccountCodeGuruProfilerRole"
-    sqs_queue_url="https://sqs.eu-west-1.amazonaws.com/338918620411/CodeGuruPythonApp"
-    s3_bucket_name="338918620411-account-bucket"
+    #iam_role="arn:aws:iam::758007484833:role/CrossAccountCodeGuruProfilerRole"
+    #sqs_queue_url="https://sqs.eu-west-1.amazonaws.com/338918620411/CodeGuruPythonApp"
+    #s3_bucket_name="338918620411-account-bucket"
 
     codeguru_session = assume_role(iam_role)
     

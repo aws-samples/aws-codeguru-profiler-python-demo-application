@@ -66,14 +66,16 @@ class SampleDemoApp:
 
 if __name__ == '__main__':
 
-    #parser = argparse.ArgumentParser()
-    #parser.add_argument("-iam_role")
-    #parser.add_argument("-sqs_url")
-    #parser.add_argument("-s3_bucket")
-    #args = parser.parse_args()
-    #iam_role=args.iam_role
-    #sqs_queue_url=args.sqs_url
-    #s3_bucket_name=args.s3_bucket
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-iam_role")
+    parser.add_argument("-sqs_url")
+    parser.add_argument("-s3_bucket")
+    args = parser.parse_args()
+    iam_role=args.iam_role
+    sqs_queue_url=args.sqs_url
+    s3_bucket_name=args.s3_bucket
+
+    print(args)
 
     iam_role="arn:aws:iam::758007484833:role/CrossAccountCodeGuruProfilerRole"
     sqs_queue_url="https://sqs.eu-west-1.amazonaws.com/338918620411/CodeGuruPythonApp"

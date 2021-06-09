@@ -1,4 +1,4 @@
-django==3.2.1
+django==3.2.2
 requests
 codeguru_profiler_agent
 boto3

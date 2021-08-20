@@ -12,7 +12,7 @@ Here's a sample code you can run in a Python Lambda in your account. You can fol
 First step is to create the resources needed to run the application.
 
 * Go to the S3 console, create an S3 bucket and take a note of the name.
-    * Example of the name: profiler-python-recommendations-demo
+    * Example of the name: profiler-python-recommendations-demo-your-name-here
 
 * Create a IAM role with these permissions to be used by the Lambda application
     * Choose Lambda to allow our lambda functions to call AWS services on your behalf.
@@ -45,7 +45,7 @@ First step is to create the resources needed to run the application.
 
 ### Run the application
 
-Now, let’s run the application.
+Now, let’s run the application in the Lambda console.
 
 * Run Deploy and Test.
     * The Lambda should be successful and print some logs.

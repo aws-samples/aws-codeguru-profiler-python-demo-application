@@ -71,3 +71,9 @@ Now, let’s run the application in the Lambda console.
 Go to the Monitor tab for your Lambda and then click “View profiles in CodeGuru”. Your profiling group’s name will be the same as your Lambda’s name.
 
 Wait for 15 minutes for CodeGuru Profiler to aggregate and show the data and approximately 1 hour for the recommendations.
+
+
+### References
+
+This sample has been also referenced on the AWS Blog:
+* https://aws.amazon.com/blogs/devops/improve-performance-of-lambda-applications-amazon-codeguru-profiler/

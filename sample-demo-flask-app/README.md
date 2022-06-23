@@ -64,11 +64,13 @@ Start the service using the gunicorn configuration.
 gunicorn "flaskr:create_app()" -c gunicorn_conf.py --log-level DEBUG --workers=5
 ```
 
+Note that the agent currently does NOT work with -k option for gevent workers.
+
 ### Generate traffic
 
 Generate traffic by running the following script that will make thousands of requests to the local server started at `http://127.0.0.1:8000`.
 ```bash
-./generate_traffic.sh
+./generate-traffic.sh
 ```
 
 ## How to see the results

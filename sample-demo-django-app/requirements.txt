@@ -1,5 +1,5 @@
 django==3.2.16
-uwsgi==2.0.19.1
+uwsgi==2.0.22
 requests
 codeguru_profiler_agent
 boto3

@@ -1,4 +1,4 @@
-django==3.2.23
+django==3.2.24
 uwsgi==2.0.22
 requests
 codeguru_profiler_agent
